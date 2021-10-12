@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <c:if test="#{empty datalogin or datalogin.getRole() != 'admin'}" >
+            <script>document.location.href = "../index.xhtml"</script>
+        </c:if>
+
+        <title>Penerbit</title>
+    </h:head>
+    <h:body>
+        <c:if test="#{not empty datalogin and datalogin.getRole() eq 'admin'}" >
+            <b:container fluid="true">
+                <b:row>
+                    <ui:include src="inc/sidebar.xhtml" />
+                </b:row>
+                <b:row>
+                    <div class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 " style="margin-right: 200px">
+                        <h1>Penerbit Add</h1>
+                        <b:alert rendered="#{tblPenerbit.error}" severity="warning"><strong>Warning!</strong> #{tblPenerbit.errorMsg}</b:alert>
+                        <b:form inline="true">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <b:inputText label="ID Penulis" labelStyle="width:80px;" value="#{tblPenerbit.idPenerbit}" /><br/>
+                                <b:inputText label="Nama" labelStyle="width:80px;" value="#{tblPenerbit.nama}" /><br/>
+                                <b:inputText label="Alamat" labelStyle="width:80px;" value="#{tblPenerbit.alamat}" /><br/>
+                                <b:inputText label="No Telp" labelStyle="width:80px;" value="#{tblPenerbit.noTelp}" /><br/>
+                                <b:inputText label="Email" labelStyle="width:80px;" value="#{tblPenerbit.email}" /><br/><br/>
+                            </h:panelGrid>
+                            <b:commandButton action="#{tblPenerbit.addData()}" value="Save" look="success" />
+                            &nbsp;
+                            <b:button outcome="penerbit.xhtml" value="Back" />
+                        </b:form>
+                    </div>
+                </b:row>
+            </b:container>
+        </c:if>
+    </h:body>
+</html>
+

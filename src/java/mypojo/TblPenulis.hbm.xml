@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 24, 2021 7:49:16 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="mypojo.TblPenulis" table="tbl_penulis" catalog="db_tutorial3_mrtom" optimistic-lock="version">
+        <id name="idPenulis" type="string">
+            <column name="id_penulis" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="nama" type="string">
+            <column name="nama" length="55" not-null="true" />
+        </property>
+        <property name="alamat" type="string">
+            <column name="alamat" length="65535" not-null="true" />
+        </property>
+        <property name="noTelp" type="string">
+            <column name="no_telp" length="12" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="25" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <c:if test="#{empty datalogin or datalogin.getRole() != 'admin'}" >
+            <script>document.location.href = "../index.xhtml"</script>
+        </c:if>
+
+        <title>Transaksi</title>
+    </h:head>
+    <h:body>
+        <c:if test="#{not empty datalogin and datalogin.getRole() eq 'admin'}" >
+            <b:container fluid="true">
+                <b:row>
+                    <ui:include src="inc/sidebar.xhtml" />
+                </b:row>
+                <b:row>
+                    <div class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 " style="margin-right: 200px">
+                        <h1 class="text-center">Detail Transaksi</h1>
+                        <!--#{tblTrx.trxNow}-->
+                        <hr/>
+                        <!--#{tblTrx.getAllDataDet(tblTrx.trxNow)}-->
+                        <table>
+                            <tr>
+                                <td>NoTrx</td>
+                                <td>:</td>
+                                <td>
+                                    <b>#{tblTrx.trxNow.get("id_trx")}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td>:</td>
+                                <td>
+                                    <b>#{tblTrx.trxNow.get("nama")}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>NoTelp</td>
+                                <td>:</td>
+                                <td>
+                                    <b>#{tblTrx.trxNow.get("no_telp")}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal</td>
+                                <td>:</td>
+                                <td>
+                                    <b>#{tblTrx.trxNow.get("tanggal")}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>:</td>
+                                <td>
+                                    <b>#{tblTrx.trxNow.get("total_harga")}</b>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <b:button outcome="transaksi.xhtml" value="Back" />
+                        <br/><br/>
+                        <div class="row table-responsive">
+                             <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>ID</th>
+                                        <th>Judul</th>
+                                        <th>Genre</th>
+                                        <th>Penulis</th>
+                                        <th>Penerbit</th>
+                                        <th>Qty</th>
+                                        <th>Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ui:repeat value="#{tblTrx.getAllDataDet(tblTrx.trxNow)}" var="isi" varStatus="sts">
+                                        <tr>
+                                            <td>#{sts.index + 1}</td>
+                                            <td>#{isi.get("trx_id")}</td>
+                                            <td>#{isi.get("judul")}</td>
+                                            <td>#{isi.get("nama_genre")}</td>
+                                            <td>#{isi.get("nama_penulis")}</td>
+                                            <td>#{isi.get("nama_penerbit")}</td>
+                                            <td>#{isi.get("qty")}</td>
+                                            <td>#{isi.get("harga")}</td>
+                                        </tr>
+                                    </ui:repeat>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </b:row>
+            </b:container>
+        </c:if>
+    </h:body>
+</html>
+

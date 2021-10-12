@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Halaman Login</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <b:alert value="#{tblUser.loginMsg}" rendered="#{tblUser.loginErr}" />
+            <b:label value="Username" /><br />
+            <b:inputText placeholder="Username" value="#{tblUser.username}" required="true" required-message="Username Cannot Blank.." /><br /><br />
+            <b:label value="Password" /><br />
+            <b:inputText placeholder="Password" value="#{tblUser.password}" required="true" required-message="Password Cannot Blank.." /><br /><br />
+            <b:commandButton look="primary btn-primary" action="#{tblUser.validasiLogin}" value="Login" />
+        </h:form>
+    </h:body>
+</html>
+

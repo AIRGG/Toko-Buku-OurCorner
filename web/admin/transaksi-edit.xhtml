@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <c:if test="#{empty datalogin or datalogin.getRole() != 'admin'}" >
+            <script>document.location.href = "../index.xhtml"</script>
+        </c:if>
+
+        <title>Transaksi</title>
+    </h:head>
+    <h:body>
+        <c:if test="#{not empty datalogin and datalogin.getRole() eq 'admin'}" >
+            <b:container fluid="true">
+                <b:row>
+                    <ui:include src="inc/sidebar.xhtml" />
+                </b:row>
+                <b:row>
+                    <div class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 " style="margin-right: 200px">
+                        <h1>Transaksi Edit</h1>
+                        <b:alert rendered="#{tblTrx.error}" severity="warning"><strong>Warning!</strong> #{tblTrx.errorMsg}</b:alert>
+                        <b:form inline="true">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <h:inputHidden value="#{tblTrx.idTrx}" />
+                                <b:inputText label="ID Trx" labelStyle="width:80px;" value="#{tblTrx.idTrx}" disabled="true" /><br/>
+                                <b:selectOneMenu value="#{tblTrx.pelangganId}" labelStyle="width:80px;" label="Pelanggan">
+                                    <f:selectItems 
+                                        value="#{tblPelanggan.getByIdforTrx(tblTrx.pelangganId)}" var="isi" 
+                                        itemLabel="#{isi.getNama()}"
+                                        itemValue="#{isi.getIdPelanggan()}"/>
+                                    <f:selectItems 
+                                        value="#{tblPelanggan.getTblPelanggan()}" var="isi" 
+                                        itemLabel="#{isi.getNama()}"
+                                        itemValue="#{isi.getIdPelanggan()}" />
+                                </b:selectOneMenu>
+                                <br/><hr/>
+                                <ui:repeat value="#{tblTrx.getDataBukuEdit(tblTrx.idTrx)}" var="isi" varStatus="sts">
+                                    <b:inputText value="#{isi.get('qtynya')}" mask="decimal" label="#{isi.get('judul')} (Rp.#{isi.get('harga')})" labelStyle="width:200px;" render-label="true"/>
+                                    <br/><br/>
+                                </ui:repeat>
+                                <br/><br/>
+                            </h:panelGrid>
+                            <b:commandButton action="#{tblTrx.updData()}" value="Save" look="success" />
+                            &nbsp;
+                            <b:button outcome="transaksi.xhtml" value="Back" />
+                        </b:form>
+                    </div>
+                </b:row>
+            </b:container>
+        </c:if>
+    </h:body>
+</html>
+

@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="mystyle.css"/>
+    </h:head>
+    <h:body>
+        <b:container fluid="true">
+            <b:row>
+                <div class="sidebar col-md-2 col-sm-3 " style="background-color: #f5f5f5; border-right: 50px solid #fff; bottom: 0;display: block; left: 0;overflow-x: hidden;overflow-y: auto;padding: 20px;position: fixed;top: 0px; z-index: 1000;">
+                    <ul class="nav nav-list ">
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Dashboard</a></li>
+                    </ul>
+                    <ul class="nav nav-list " style="">
+                        <!--                <li class="dropdown-header" role="presentation">Dasboard Links</li>-->
+                        <li class="active" style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Buku</a></li>
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Penulis</a></li>
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Penerbit</a></li>
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Genre</a></li>
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">User</a></li>
+                    </ul>
+
+                    <ul class="nav nav-list ">
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Tranksaksi</a></li>
+                    </ul>
+                    <hr/>
+                    <ul class="nav nav-list ">
+                        <li style="cursor:pointer;"><a href="#" role="menuitem" tabindex="0">Logout</a></li></ul>
+                    <hr/>
+                </div>
+                <div class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 " style="margin-right: 200px">
+                    <h1>Dashboard</h1>
+                    <hr/><div class="row placeholders"><div class="placeholder col-xs-6 col-sm-3 ">
+
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span></div><div class="placeholder col-xs-6 col-sm-3 ">
+
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span></div><div class="placeholder col-xs-6 col-sm-3 ">
+
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span></div><div class="placeholder col-xs-6 col-sm-3 ">
+
+                            <h4>Label</h4>
+                            <span class="text-muted">Something else</span></div></div>
+                    <h1>Section title</h1>
+                    <b:button value="Add"/>
+                    <hr/><div class="row table-responsive">
+                        <table class="table table-striped" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Header</th>
+                                    <th scope="col">Header</th>
+                                    <th scope="col">Header</th>
+                                    <th scope="col">Header</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,001</td>
+                                    <td>Lorem</td>
+                                    <td>ipsum</td>
+                                    <td>dolor</td>
+                                    <td>sit</td>
+                                    <td><b:button value="Default" look="warning"/></td>
+                                    <td><b:button value="Default" look="danger" /></td>
+
+                                </tr>
+                                <tr>
+                                    <td>1,002</td>
+                                    <td>amet</td>
+                                    <td>consectetur</td>
+                                    <td>adipiscing</td>
+                                    <td>elit</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>sed</td>
+                                    <td>do</td>
+                                    <td>eiusmod</td>
+                                    <td>tempor</td>
+                                </tr>
+                                <tr>
+                                    <td>1,004</td>
+                                    <td>incididunt</td>
+                                    <td>ut</td>
+                                    <td>labore</td>
+                                    <td>et</td>
+                                </tr>
+                                <tr>
+                                    <td>1,005</td>
+                                    <td>dolore</td>
+                                    <td>magna</td>
+                                    <td>aliqua</td>
+                                    <td>Ut</td>
+                                </tr>
+                                <tr>
+                                    <td>1,006</td>
+                                    <td>enim</td>
+                                    <td>ad</td>
+                                    <td>minim</td>
+                                    <td>veniam</td>
+                                </tr>
+                                <tr>
+                                    <td>1,007</td>
+                                    <td>quis</td>
+                                    <td>nostrud</td>
+                                    <td>exercitation</td>
+                                    <td>ullamco</td>
+                                </tr>
+                                <tr>
+                                    <td>1,008</td>
+                                    <td>laboris</td>
+                                    <td>nisi</td>
+                                    <td>ut</td>
+                                    <td>aliquip</td>
+                                </tr>
+                                <tr>
+                                    <td>1,009</td>
+                                    <td>ex</td>
+                                    <td>ea</td>
+                                    <td>commodo</td>
+                                    <td>consequat</td>
+                                </tr>
+                                <tr>
+                                    <td>1,010</td>
+                                    <td>Duis</td>
+                                    <td>aute</td>
+                                    <td>irure</td>
+                                    <td>dolor</td>
+                                </tr>
+                                <tr>
+                                    <td>1,011</td>
+                                    <td>in</td>
+                                    <td>reprehenderit</td>
+                                    <td>in</td>
+                                    <td>voluptate</td>
+                                </tr>
+                                <tr>
+                                    <td>1,012</td>
+                                    <td>velit</td>
+                                    <td>esse</td>
+                                    <td>cillum</td>
+                                    <td>dolore</td>
+                                </tr>
+                                <tr>
+                                    <td>1,013</td>
+                                    <td>eu</td>
+                                    <td>fugiat</td>
+                                    <td>nulla</td>
+                                    <td>pariatur</td>
+                                </tr>
+                                <tr>
+                                    <td>1,014</td>
+                                    <td>Excepteur</td>
+                                    <td>sint</td>
+                                    <td>occaecat</td>
+                                    <td>cupidatat</td>
+                                </tr>
+                                <tr>
+                                    <td>1,015</td>
+                                    <td>non</td>
+                                    <td>proident</td>
+                                    <td>sunt</td>
+                                    <td>in</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div></div>
+            </b:row>
+        </b:container>
+    </h:body>
+</html>
+

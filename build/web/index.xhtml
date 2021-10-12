@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Halaman Login</title>
+    </h:head>
+    <h:body>
+       <div class="container">
+<!--            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
+                <div class="navbar-brand" style="background-color: #1e4f23"><font style="color: white">Our Corner </font></div>
+        </div>-->
+            <div class="row">
+                <div class="col-xs-12 col-xs-updated">
+                    <b:container style="width: 25%">
+                        <h:form styleClass="form-signin" prependId="false">
+                            <h2 class="form-signin-heading">Halaman Login</h2>
+                            <b:alert value="#{tblUser.errorMsg}" rendered="#{tblUser.error}" />
+                            <b:inputText placeholder="Username" value="#{tblUser.username}"
+                                         required="true" required-message="Password Cannot Blank..">
+                                <f:facet name="prepend">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </f:facet>
+                            </b:inputText>
+                            <b:inputText placeholder="password" value="#{tblUser.password}"
+                                         required="true" required-message="Password Cannot Blank.." type="password">
+                                <f:facet name="prepend">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </f:facet>
+                            </b:inputText>
+                            <center>
+                                <b:commandButton look="primary btn-success" action="#{tblUser.validasiLogin}"
+                                                 value="Sign In" icon="log-in" size="1g"/>
+                            </center>
+                        </h:form>
+                    </b:container>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Halaman Pelanggan</title>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse" style="background-color: #1e4f23">
+                <div class="navbar-brand" style="background-color: #1e4f23"> 
+                    <font style="color:white">Orang Login: #{tblUser.username} #{isi}</font>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-xs-updated">
+                    <center>
+                        <b:container style="width: 40%; background-color: #dcffbd; padding-bottom: 30px;">
+                            <h:form styleClass="form-signin" prependId="false">
+                                <br/>
+                                <h:outputLabel style="font-size: 35px">Data Pelanggan </h:outputLabel>
+                                <br/><br/>
+                                <b:alert value="#{tblPelanggan.msgError}" rendered="#{tblPelanggan.isError}" />
+                                <b:alert severity="success" value="#{tblPelanggan.msg}" rendered="#{tblPelanggan.isMsg}" />
+                                <br/><br/>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h:outputLabel style="font-size: 24px">ID</h:outputLabel>
+                                        </td>
+                                        <td width="5%"></td>
+                                        <td>
+                                            
+                                            <b:inputText placeholder="Input ID.." value="#{tblPelanggan.idPelanggan}" required="true" required-message="ID Pelanggan Cnanot Blank.." /></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <center>
+                                                <b:commandButton look="primary btn-success" value="Cari Data pelanggan"
+                                                                 icon="search" action="#{tblPelanggan.getById}"/>
+                                            </center>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel style="font-size: 20px">Nama:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText placeholder="Input Nama.." value="#{tblPelanggan.nama}" required-message="Nama Pelanggan Cnanot Blank.." />
+                                        </td> 
+                                    </tr>
+                                      <tr>
+                                        <td><h:outputLabel style="font-size: 20px">Alamat:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText placeholder="Input Alamat.." value="#{tblPelanggan.alamat}" required-message="Alamat Pelanggan Cnanot Blank.." />
+                                        </td> 
+                                    </tr>
+                                     <tr>
+                                        <td><h:outputLabel style="font-size: 20px">E-Mail:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText placeholder="Input Email.." value="#{tblPelanggan.email}" required-message="Email Pelanggan Cnanot Blank.." />
+                                        </td> 
+                                    </tr>
+                                     <tr>
+                                        <td><h:outputLabel style="font-size: 20px">Telepon:</h:outputLabel></td>
+                                        <td></td>
+                                        <td>
+                                            <b:inputText placeholder="Input Telp.." value="#{tblPelanggan.noTelp}" required-message="No Telp Pelanggan Cnanot Blank.." />
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">
+                                            <center>
+                                                <b:commandButton look="btn btn-success" value="UBAH"
+                                                                 icon="edit" action="#{tblPelanggan.update}"/>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <b:commandButton look="btn btn-success" value="HAPUS"
+                                                                 icon="edit" action="#{tblPelanggan.delete}"/>
+                                                <br/>
+                                                <b:button href="faces/insert_view_pelanggan.xhtml" value="Insert Pelanggan" />
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </h:form>
+                        </b:container>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+
